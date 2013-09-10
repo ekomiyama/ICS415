@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<html>
-<head>
 <style type="text/css">
 h1 {
   height: 25%;
@@ -14,17 +12,23 @@ width:100%;
 
 #navbar {
   height:50px;
+  width:100%;
+  vertical-align:middle;
+  border-style:solid;
+  border-color:#3366FF;
 }
 
 #summary {
 width:25%;
-border-right-style:solid;
+height:500px;
+border-style:solid;
 border-color:#3366FF;
 vertical-align:top;
+float:left;
 }
 
 #foot1 {
-text-align:center;
+align:center;
 height:50px;
 width:100%;
 border-style:solid;
@@ -33,12 +37,16 @@ border-color:#3366FF;
 
 #maintable {
 height:500px;
-width:100%;
+width:75%;
 border-style:solid;
 border-color:#3366FF;
 }
 
 #mainbox {
+height:500px;
+width:100%;
+border-style:solid;
+border-color:#3366FF;
 vertical-align:top;
 }
 
@@ -55,27 +63,22 @@ padding:0;
 }
 
 </style>
-<head>
-<body>
+<header>
 <h1>ICS 415 Assignment 05</h1>
-<table id="topnav">
-<tr>
-<td id="navbar">
-<a href="homepage.html">Home</a>
-<a href="formspage.html">Forms</a>
-</td>
-</tr>
-</table>
-<table id="maintable">
-<tr> 
-<td id="summary"> 
+</header>
+<body>
+<nav id="navbar">
+<a href="homepagehtml5.html">Home</a>
+<a href="formspagehtml5.html">Forms</a>
+</nav>
+<section id="summary">
 <h2>
 Examples of Tables and Lists
 </h2>
 <p> This page is the first page loaded when
 going to this website which shows examples of the types of lists and tables you can make with html.</p>
-</td>
-<td id="mainbox"> 
+</section>
+<section id="mainbox"> 
 <p>Tables: </p>
 <table>
 <caption>Borderless Table</caption>
@@ -122,11 +125,11 @@ cell
 <dd>Used in Golf</dd>
 </dl>
 
-</td>
-</tr>
-</table>
-<footer id="foot1" align="center">
+</section>
+<footer>
+<div id="foot1" align="center">
 <p>Copyright(C) Evan Komiyama</p>
+</div>
 <footer>
 </body>
 </html>
