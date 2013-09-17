@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script>
+function getClasses(elem) {
+ var splitClasses = new Array(elem.className.split(" "));
+ var classString = "[";
+ var i = 0;
+    while(i < splitClasses.length) {
+        if(i == splitClasses.length-1) {
+         classString +=  "\"" + splitClasses[i] + "\"" + "]";
+         i++;
+        }else {
+         classString += "\"" + splitClasses[i] + "\"" + ", ";
+         i++;
+        }
+    }
+ alert(classString);
+}
+
+function addClass(elem, className) {
+    
+	if(elem.className == "") {
+	elem.setAttribute("class", className);
+	}else {
+    elem.className = elem.className + " " + className;
+	}
+	alert(elem.className);
+}
+</script>
+
+<head>
+
+<body>
+<button class="foo bar" onCLick="getClasses(this)">HI</button>
+<button class="foo bar" onClick="addClass(this, 'baz')">HELLO</button>
+
+</body>
+<html>
