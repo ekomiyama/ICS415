@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+.answers {
+    padding-left: 30px;
+    color: blue;
+    display: none;
+}
+
+.questions {
+    color: orange;
+    text-decoration: underline;
+}
+
+.link {
+    background: none;
+    border: none;
+    font-size: 18px;
+}
+
+div {
+    padding-bottom: 50px;
+}
+
+h1 {
+  padding-left: 20px;
+  padding-bottom: 30px;
+}
+
+button {
+  padding-left: 20px;
+}
+
+</style>
+
+<script type="text/javascript" src="jquery1.10.2.js" ></script>
+<script type="text/javascript" src="myScript.js"></script>
+</head>
+
+<body>
+<h1>Frequetly Asked Questions</h1>
+<div><button id="question1" onClick="toggleAnswer('answer1')" class="questions link">Question #1</button>
+ <p id="answer1" class="answers">Answer #1</p></div>
+<div><button id="question2" onClick="toggleAnswer('answer2')" class="questions link">Question #2</button>
+    <p id="answer2" class="answers">Answer #2</p></div>
+<div><button id="question3" onClick="toggleAnswer('answer3')" class="questions link">Question #3</button>
+    <p id="answer3" class="answers">Answer #3</p></div>
+<div><button id="question4" onClick="toggleAnswer('answer4')" class="questions link">Question #4</button>
+    <p id="answer4" class="answers">Answer #4</p></div>
+<div><button id="question5" onClick="toggleAnswer('answer5')" class="questions link">Question #5</button>
+    <p id="answer5" class="answers">Answer #5</p></div>
+
+</body>
+</html>
