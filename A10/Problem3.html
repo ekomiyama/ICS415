@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style type="text/css">
+
+.incorrect {
+  background-color: red;
+
+}
+
+.list {
+  color: red;
+
+}
+
+</style>
+
+<script type="text/javascript">
+function validateForm() {
+   var isFalse = 0;
+   var errorList = document.createElement("ul");
+       document.body.insertBefore(errorList, document.myForm);
+       errorList.setAttribute("name", "errors");
+	   errorList.setAttribute("class", "list");
+   var nameError = document.createElement("li");
+   var emailError = document.createElement("li");
+   var passwordError = document.createElement("li");
+ 
+   if(document.myForm.name.value == "") {
+        document.myForm.name.setAttribute("class", "incorrect");
+		isFalse = 1;
+		errorList.appendChild(nameError);
+		nameError.setAttribute("name", "nameError");
+		nameError.innerHTML = "Please enter a user name";
+    }else {
+	  document.myForm.name.className = "";
+	}
+	if(document.myForm.email.value === "") {
+	  document.myForm.email.setAttribute("class", "incorrect");
+	  isFalse = 1;
+	    errorList.appendChild(emailError);
+		emailError.setAttribute("name", "emailError");
+		emailError.innerHTML = "Please enter a valid email address";
+	}else {
+	  document.myForm.email.className = "";
+	}
+	if(document.myForm.password.value == document.myForm.confirm.value) {
+	  document.myForm.password.setAttribute("class", "incorrect");
+	  document.myForm.confirm.setAttribute("class", "incorrect");
+	  isFalse = 1;
+		errorList.appendChild(passwordError);
+		passwordError.setAttribute("name", "passwordError");
+		passwordError.innerHTML = "The two passwords do not match";
+	}else {
+	  document.myForm.password.className = "";
+	  document.myForm.confirm.className = "";
+	}
+	if(isFalse != 0) {
+	  return false;
+	}else {
+	  return true;
+	}
+	return false;
+    
+
+}
+
+
+
+</script>
+
+
+</head>
+<body>
+<form name="myForm" action="demo_form.html" onsubmit="return validateForm()" method="post">
+User name: <input type="text" name="name"><br/>
+Email: <input type="email" name="email"><br/>
+Password: <input type="password" name="password"><br/>
+Confirm Password: <input type="password" name="confirm"><br/>
+ <input type="submit" value="Submit"/>
+ </form>
+ </body>
+ </html>
