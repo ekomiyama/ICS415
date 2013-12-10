@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script>
+$("document").ready(function() {
+    $("#tagButton").click(function() {
+	    var siteURL = $("#urlName").val();
+	    $.get(siteURL, function(data) {
+			var tagList = new Array();
+			var inList = false;
+			$("body").append("<table><tr><td>Tag</td><td>Count</td></tr></table>");
+			$(data).filter("*").each(function() {
+				inList = false;
+				for(var i=0; i < tagList.length; i++) {
+					if(this.tagName == tagList[i]) {
+						inList = true;
+						i = tagList.length;
+					}
+				}
+				if(! inList) {
+				var count = $(data).filter(this.tagName).length;
+				$("table").append("<tr><td>" + this.tagName + "</td><td>" + count + "</td></tr>");
+				tagList[tagList.length] = this.tagName;
+				}
+				$(this).find("*").each(function() {
+				inList = false;
+				for(var i=0; i < tagList.length; i++) {
+					if(this.tagName == tagList[i]) {
+						inList = true;
+						i = tagList.length;
+					}
+				}
+				if(! inList) {
+					count = $(data).find(this.tagName).length;
+					$("table").append("<tr><td>" + this.tagName + "</td><td>" + count + "</td></tr>");
+					tagList[tagList.length] = this.tagName;
+					}
+				});
+			
+			});
+		
+			
+		});
+		
+	});
+	
+	
+	$("#scriptButton").click(function() {
+		var siteURL = $("#urlName2").val();
+		$("body").append("<ul></ul>");
+		$.get(siteURL, function(data) {
+			$(data).filter("script").each(function() {
+				if($(this).attr("src")) {
+					var srcName = $(this).attr("src");
+					$("ul").append("<li>" + srcName + "</li>");
+				}
+			
+			});
+		
+		});
+	
+	});
+	
+	
+	
+
+});
+
+</script>
+</head>
+<body>
+
+<button type="button" id="tagButton">List Tags</button>
+<input type="text" id="urlName">
+
+<button type="button" id="scriptButton">List External Scripts</button>
+<input type="text" id="urlName2">
+
+</body>
+</html>
